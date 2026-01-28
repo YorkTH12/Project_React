@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import Hightlight from './components/Hightlight';
 import Transcript from './components/Transcript';
 
 function App() {
@@ -20,8 +21,10 @@ function App() {
       {/* Component พวกนี้มี id="..." อยู่ข้างในตัวเองแล้ว (ตามโค้ดก่อนหน้า) */}
       <About />
       <Skills />
-      <Contact />
+      <Hightlight />
       <Transcript />
+      <Contact />
+      
       
     </div>
   );

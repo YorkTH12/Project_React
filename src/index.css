@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+#root {
+  width: 100%;
+  max-width: 100%; /* ตัวแก้เผ็ด! บังคับให้ไม่จำกัดความกว้าง */
+  margin: 0;
+  padding: 0;
+  text-align: left; /* แก้ text-align center ที่ชอบติดมา */
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

@@ -1,60 +1,80 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // พระเอกของเรา
-import { ArrowDown, Github, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowDown, Github, Linkedin, Download, FileText } from 'lucide-react';
 
 const Hero = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-white relative overflow-hidden">
       
-      {/* Background Gradient แบบฟุ้งๆ (สไตล์ Modern) */}
+      {/* Background Gradient */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-orange-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
         <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-gray-200 rounded-full blur-3xl opacity-30"></div>
       </div>
 
-      <div className="z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="z-10 text-center px-4 max-w-4xl mx-auto mt-16">
         
-        {/* 1. Animation: ชื่อลอยขึ้นมา */}
+        {/* ชื่อลอยขึ้นมา */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 tracking-tight"
         >
-          Hi, I'm <span className="text-[#FF4500]">Itthisak Sasirot</span>
+          Hi, I'm <span className="text-[#FF4500]">Your Name</span>
         </motion.h1>
 
-        {/* 2. Animation: คำอธิบายค่อยๆ ปรากฏ */}
+        {/* คำอธิบาย (แก้ตามที่คุณขอมาล่าสุด) */}
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl text-gray-600 mb-8 leading-relaxed"
+          className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto"
         >
-          A Computer Electronic Technology at <span className="font-semibold">King Mongkut's University of Technology North Bangkok</span>. <br/>
-          Passionate about problem-solving and delivering excellent service.
+          Computer Electronic Technology Student at <span className="font-semibold">KMUTNB</span>. <br/>
+          Driven by a strong <span className="text-[#FF4500] font-medium">passion for service</span>. <br/>
+          Aiming to be a <span className="font-semibold">Cybersecurity Specialist</span>.
         </motion.p>
 
-        {/* 3. Animation: ปุ่มกด */}
+        {/* ส่วนปุ่มกด (Action Buttons) */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <a href="#projects" className="px-8 py-3 bg-[#FF4500] text-white rounded-full font-medium hover:bg-orange-700 transition shadow-lg hover:shadow-orange-500/30">
-            View My Work
+          {/* ปุ่มที่ 1: Download Resume (เด่นที่สุด) */}
+          <a 
+            href="/resume.pdf" // ชี้ไปที่ไฟล์ในโฟลเดอร์ public
+            download="Resume_Itthisak.pdf" // ชื่อไฟล์ตอนโหลดลงเครื่องคนอื่น
+            className="flex items-center gap-2 px-8 py-3 bg-[#FF4500] text-white rounded-full font-bold hover:bg-orange-700 transition shadow-lg hover:shadow-orange-500/30 transform hover:-translate-y-1"
+          >
+            <Download size={20} />
+            Download Resume
           </a>
-          <a href="https://github.com" target="_blank" className="p-3 bg-gray-100 rounded-full hover:bg-gray-200 transition">
-            <Github className="w-6 h-6 text-gray-700" />
+
+          {/* ปุ่มที่ 2: View My Work (ปุ่มรอง) */}
+          <a 
+            href="#about" 
+            className="flex items-center gap-2 px-8 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-full font-bold hover:border-[#FF4500] hover:text-[#FF4500] transition transform hover:-translate-y-1"
+          >
+            <FileText size={20} />
+            About Me
           </a>
-          <a href="https://linkedin.com" target="_blank" className="p-3 bg-gray-100 rounded-full hover:bg-gray-200 transition">
-            <Linkedin className="w-6 h-6 text-gray-700" />
-          </a>
+
+          {/* ปุ่ม Social Icons */}
+          <div className="flex gap-3 mt-4 sm:mt-0 sm:ml-4 border-l pl-0 sm:pl-6 border-gray-200">
+            <a href="https://github.com" target="_blank" className="p-3 bg-gray-50 rounded-full hover:bg-gray-200 transition text-gray-700 hover:text-black">
+              <Github className="w-5 h-5" />
+            </a>
+            <a href="https://linkedin.com" target="_blank" className="p-3 bg-gray-50 rounded-full hover:bg-gray-200 transition text-gray-700 hover:text-blue-600">
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
         </motion.div>
       </div>
 
-      {/* ลูกศรชี้ลง เด้งดึ๋งๆ */}
+      {/* ลูกศรชี้ลง */}
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
