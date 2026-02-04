@@ -21,20 +21,20 @@ const Contact = () => {
           <div className="flex flex-col md:flex-row justify-center gap-8 mb-12">
             <div className="flex items-center justify-center gap-3">
               <Mail className="text-[#FF4500]" />
-              <span>your.email@kmutnb.ac.th</span>
+              <span>bird0948979449@gmail.com</span>
             </div>
             <div className="flex items-center justify-center gap-3">
               <Phone className="text-[#FF4500]" />
-              <span>08x-xxx-xxxx</span>
+              <span>094-897-9449</span>
             </div>
             <div className="flex items-center justify-center gap-3">
               <MapPin className="text-[#FF4500]" />
-              <span>KMUTNB, Bangkok</span>
+              <span>วงศ์สว่าง แขวงวงศ์สว่าง บางซื่อ กรุงเทพมหานคร 10800</span>
             </div>
           </div>
 
           <a 
-            href="mailto:your.email@kmutnb.ac.th"
+            href="mailto:bird0948979449@gmail.com"
             className="inline-block px-10 py-4 bg-[#FF4500] hover:bg-orange-600 rounded-full font-bold text-lg transition-colors shadow-lg shadow-orange-500/20"
           >
             Send Message

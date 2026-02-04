@@ -1,35 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Server, Database, Layout, GitBranch, Terminal } from 'lucide-react';
+import { Layout, Database, Terminal, Cpu, Shield, Globe } from 'lucide-react';
 
 const Skills = () => {
-  // ข้อมูล Skills แบ่งตามหมวดหมู่
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: "Software & Web Dev",
       icon: <Layout className="w-6 h-6" />,
-      skills: ["React", "Tailwind CSS", "HTML5/CSS3", "JavaScript (ES6+)", "Framer Motion"]
+      // จากวิชา Mobile App (A) และ Web App (B)
+      skills: ["React / React Native", "HTML/CSS/JS", "Mobile App Dev", "Web Application"]
     },
     {
-      title: "Backend & Database",
+      title: "System & Security Basics",
+      icon: <Shield className="w-6 h-6" />,
+      // จากวิชา Linux (B+) และ Networks (B)
+      skills: ["Linux Command Line", "System Administration", "Network Configuration", "Bash Scripting"]
+    },
+    {
+      title: "Data & Cloud",
       icon: <Database className="w-6 h-6" />,
-      skills: ["Node.js", "Firebase", "MySQL", "RESTful APIs", "Python"]
+      // จากวิชา Database (A) และ Cloud (B)
+      skills: ["MySQL / SQL", "Database Design", "Cloud Computing"]
     },
     {
-      title: "Tools & Others",
-      icon: <Terminal className="w-6 h-6" />,
-      skills: ["Git / GitHub", "VS Code", "Figma", "Postman", "Vercel"]
+      title: "Hardware & IoT",
+      icon: <Cpu className="w-6 h-6" />,
+      // จากวิชา Electronics (A) และ Microcontroller
+      skills: ["Microcontrollers", "Raspberry Pi" ]
     }
   ];
 
-  // Animation Variant: พ่อสั่งให้ลูกๆ เด้งทีละคน
+  // ... (ส่วน Animation โค้ดเดิมใช้ได้เลยครับ) ...
+  
+  // (Copy ส่วน return ของไฟล์ Skills.jsx เดิมมาแปะ แล้วเปลี่ยนแค่ตัวแปร skillCategories ข้างบนครับ)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2 // แต่ละอันห่างกัน 0.2 วินาที
-      }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
@@ -41,51 +49,45 @@ const Skills = () => {
   return (
     <section id="skills" className="py-24 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
-        
-        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Technical <span className="text-[#FF4500]">Arsenal</span></h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Technical <span className="text-[#FF4500]">Skills</span></h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            เครื่องมือและเทคโนโลยีที่ผมเลือกใช้เพื่อสร้างสรรค์ผลงานที่มีคุณภาพ
+            ความเชี่ยวชาญที่ได้จากการเรียนรู้และลงมือทำจริง ทั้งด้าน Software, Hardware และ System
           </p>
         </div>
 
-        {/* Grid แสดงหมวดหมู่ */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }} // ให้เริ่มเล่นเมื่อเลื่อนมาถึงนิดนึง
+              viewport={{ once: true }}
               variants={containerVariants}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-orange-200 transition-colors"
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-orange-200 transition-colors"
             >
-              {/* หัวข้อหมวดหมู่ */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-orange-100 text-[#FF4500] rounded-lg">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900">{category.title}</h3>
               </div>
 
-              {/* รายการ Skills */}
               <div className="space-y-3">
                 {category.skills.map((skill, idx) => (
                   <motion.div 
                     key={idx} 
                     variants={itemVariants}
-                    className="flex items-center gap-2 group"
+                    className="flex items-center gap-2"
                   >
-                    <div className="w-2 h-2 bg-gray-300 rounded-full group-hover:bg-[#FF4500] transition-colors"></div>
-                    <span className="text-gray-600 font-medium group-hover:text-gray-900 transition-colors">{skill}</span>
+                    <div className="w-1.5 h-1.5 bg-[#FF4500] rounded-full"></div>
+                    <span className="text-gray-600 text-sm font-medium">{skill}</span>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

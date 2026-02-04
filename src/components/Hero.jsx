@@ -63,14 +63,14 @@ const Hero = () => {
           </a>
 
           {/* ปุ่ม Social Icons */}
-          <div className="flex gap-3 mt-4 sm:mt-0 sm:ml-4 border-l pl-0 sm:pl-6 border-gray-200">
+          {/* <div className="flex gap-3 mt-4 sm:mt-0 sm:ml-4 border-l pl-0 sm:pl-6 border-gray-200">
             <a href="https://github.com" target="_blank" className="p-3 bg-gray-50 rounded-full hover:bg-gray-200 transition text-gray-700 hover:text-black">
               <Github className="w-5 h-5" />
             </a>
             <a href="https://linkedin.com" target="_blank" className="p-3 bg-gray-50 rounded-full hover:bg-gray-200 transition text-gray-700 hover:text-blue-600">
               <Linkedin className="w-5 h-5" />
             </a>
-          </div>
+          </div> */}
         </motion.div>
       </div>
 

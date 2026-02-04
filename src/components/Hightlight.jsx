@@ -1,77 +1,86 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GraduationCap, X, ChevronRight, Code } from 'lucide-react';
+import { GraduationCap, ChevronRight, X, Code, Smartphone, Database, Terminal, Cpu } from 'lucide-react';
 
-const Hightlight = () => {
+const Highlight = () => {
   const [selectedId, setSelectedId] = useState(null);
 
-  // ข้อมูลรายวิชา (ใส่เฉพาะวิชาเทพๆ ที่อยากอวด)
+  // ข้อมูลดึงมาจาก Transcript จริง (เน้นวิชาเกรด A/B+)
   const courses = [
     {
       id: 1,
-      code: "040xxxx",
-      name: "Web Programming",
+      code: "030523503",
+      name: "Mobile App Development",
       grade: "A",
-      description: "เรียนรู้การสร้าง Web Application ตั้งแต่พื้นฐาน HTML/CSS จนถึง JavaScript Framework",
-      project: "ระบบร้านขายขวด (Bottle Shop) แถววงศ์สว่าง",
-      stack: ["React", "Firebase", "Tailwind CSS"]
+      icon: <Smartphone className="text-[#FF4500]" />,
+      description: "เรียนรู้การพัฒนาแอปพลิเคชันบนมือถือแบบ Cross-platform",
+      keyHighlightType: "Key Project", // <-- ระบุประเภทหัวข้อ
+      keyHighlightValue: "แอปดูอัตราแลกเปลี่ยนเงินตราต่างประเทศแบบเรียลไทม์", // <-- ใส่ชื่อโปรเจคที่ทำ
+      stack: ["React Native", "Firebase"]
     },
+    // วิชาที่ไม่มี Project แต่เน้น Skill/Lab (เช่น Linux)
     {
       id: 2,
-      code: "040xxxx",
-      name: "Data Structures & Algo",
+      code: "030523126",
+      name: "Linux OS & Admin",
       grade: "B+",
-      description: "ศึกษาโครงสร้างข้อมูลรูปแบบต่างๆ และวิเคราะห์ความซับซ้อนของอัลกอริทึม",
-      project: "ระบบจัดเส้นทางเดินรถเมล์ด้วย Graph Theory",
-      stack: ["Python", "C++"]
+      icon: <Terminal className="text-[#FF4500]" />,
+      description: "การบริหารจัดการระบบปฏิบัติการ Linux, Shell Scripting...",
+      keyHighlightType: "Practical Focus", // <-- เปลี่ยนชื่อหัวข้อตรงนี้
+      keyHighlightValue: "การเขียน Shell Script เพื่อ Automate งาน Backup ข้อมูล", // <-- ใส่สิ่งที่ทำเป็น
+      stack: ["Ubuntu", "Bash Script", "Cron Job"]
     },
+    // วิชา Electronics (A) เน้น Lab
     {
       id: 3,
-      code: "040xxxx",
-      name: "Database Systems",
+      code: "030523106",
+      name: "Electronics Technology",
       grade: "A",
-      description: "การออกแบบ ER-Diagram, Normalization และการเขียน SQL Query",
-      project: "ฐานข้อมูลระบบลงทะเบียนนักศึกษา",
-      stack: ["MySQL", "Workbench"]
-    }
+      icon: <Cpu className="text-[#FF4500]" />,
+      description: "ทฤษฎีวงจรอิเล็กทรอนิกส์พื้นฐาน การวิเคราะห์วงจรและการใช้งานอุปกรณ์วัด",
+      keyHighlightType: "Lab Highlight", // <-- เน้นงาน Lab
+      keyHighlightValue: "การออกแบบและต่อวงจร",
+      stack: ["Multimeter", "Oscilloscope", "PCB Design"]
+    },
   ];
 
   return (
-    <section id="hightlight" className="py-20 bg-white">
+    <section id="highlight" className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4">
         
-        {/* หัวข้อ */}
         <div className="flex items-center gap-3 mb-10">
           <GraduationCap className="text-[#FF4500] w-10 h-10" />
           <h2 className="text-4xl font-bold text-gray-900">Academic <span className="text-[#FF4500]">Highlights</span></h2>
         </div>
 
-        {/* ตารางรายวิชา (List) */}
-        <div className="grid gap-4">
+        <div className="grid gap-4 md:grid-cols-2">
           {courses.map((course) => (
             <motion.div
               key={course.id}
-              layoutId={`card-${course.id}`} // หัวใจสำคัญของ Animation ขยายร่าง
+              layoutId={`card-${course.id}`}
               onClick={() => setSelectedId(course.id)}
-              className="group p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-[#FF4500] cursor-pointer transition-colors flex justify-between items-center shadow-sm hover:shadow-md"
+              className="group p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-[#FF4500] cursor-pointer transition-all hover:shadow-lg relative overflow-hidden"
             >
-              <div>
-                <span className="text-sm text-gray-500 font-mono">{course.code}</span>
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#FF4500] transition-colors">{course.name}</h3>
-              </div>
-              <div className="flex items-center gap-4">
+              <div className="flex justify-between items-start mb-4">
+                <div className="p-3 bg-white rounded-lg shadow-sm group-hover:bg-orange-50 transition-colors">
+                  {course.icon}
+                </div>
                 <span className="text-2xl font-bold text-[#FF4500]">{course.grade}</span>
-                <ChevronRight className="text-gray-400 group-hover:translate-x-1 transition-transform" />
+              </div>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-1">{course.name}</h3>
+              <p className="text-sm text-gray-500 font-mono mb-4">{course.code}</p>
+              
+              <div className="flex items-center text-sm text-gray-600 group-hover:text-[#FF4500] font-medium">
+                View Detail <ChevronRight size={16} className="ml-1" />
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* ส่วน Popup (Modal) เมื่อกดคลิก */}
         <AnimatePresence>
           {selectedId && (
             <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-              {/* พื้นหลังสีดำจางๆ */}
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -80,12 +89,10 @@ const Hightlight = () => {
                 className="absolute inset-0 bg-black/60 backdrop-blur-sm"
               />
               
-              {/* ตัวการ์ดที่ขยายออกมา */}
               <motion.div 
                 layoutId={`card-${selectedId}`}
-                className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg z-10 relative overflow-hidden"
+                className="bg-white p-6 md:p-8 rounded-2xl shadow-2xl w-full max-w-lg z-10 relative overflow-hidden"
               >
-                {/* ปุ่มปิด */}
                 <button 
                   onClick={() => setSelectedId(null)}
                   className="absolute top-4 right-4 p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition"
@@ -93,32 +100,41 @@ const Hightlight = () => {
                   <X size={20} />
                 </button>
 
-                {/* เนื้อหาข้างใน */}
                 {courses.map((course) => {
                   if (course.id !== selectedId) return null;
                   return (
                     <div key={course.id}>
-                      <span className="text-sm text-[#FF4500] font-bold tracking-wider uppercase">Course Detail</span>
-                      <h3 className="text-3xl font-bold text-gray-900 mt-2 mb-4">{course.name}</h3>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-3 bg-orange-100 rounded-lg text-[#FF4500]">
+                          {course.icon}
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-gray-900">{course.name}</h3>
+                          <span className="text-sm text-gray-500 font-mono">{course.code}</span>
+                        </div>
+                      </div>
                       
-                      <div className="space-y-4">
+                      <div className="space-y-6">
                         <p className="text-gray-600 leading-relaxed">
                           {course.description}
                         </p>
                         
-                        <div className="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
                           <h4 className="font-bold text-gray-900 flex items-center gap-2 mb-2">
+                            {/* ใช้ไอคอน Code เป็นค่า Default */}
                             <Code size={18} className="text-[#FF4500]" />
-                            Key Project
+                            {course.keyHighlightType} {/* <-- แสดงชื่อหัวข้อตามข้อมูล */}
                           </h4>
-                          <p className="text-gray-700 font-medium">{course.project}</p>
+                          <p className="text-gray-700 font-medium">
+                            {course.keyHighlightValue} {/* <-- แสดงเนื้อหา */}
+                          </p>
                         </div>
 
                         <div>
-                          <h4 className="font-bold text-gray-900 mb-2">Tech Stack Used:</h4>
+                          <h4 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">Tech Stack</h4>
                           <div className="flex flex-wrap gap-2">
                             {course.stack.map((tech, i) => (
-                              <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">
+                              <span key={i} className="px-3 py-1 bg-orange-50 text-[#FF4500] text-sm rounded-full font-medium border border-orange-100">
                                 {tech}
                               </span>
                             ))}
@@ -138,4 +154,4 @@ const Hightlight = () => {
   );
 };
 
-export default Hightlight;
+export default Highlight;
