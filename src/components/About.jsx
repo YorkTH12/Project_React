@@ -24,7 +24,7 @@ const About = () => {
             <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <img 
                 // อย่าลืมเปลี่ยนรูปตรงนี้นะครับ
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" 
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" 
                 alt="My Profile" 
                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
               />

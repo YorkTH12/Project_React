@@ -14,6 +14,26 @@ const Hero = () => {
 
       <div className="z-10 text-center px-4 max-w-4xl mx-auto mt-16">
         
+        {/* ⭐ ส่วนรูปโปรไฟล์วงกลม (เพิ่มใหม่ตรงนี้) ⭐ */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+          className="w-48 h-48 mx-auto mb-8 relative"
+        >
+          {/* วงกลมตกแต่งด้านหลัง (Optional: ให้ดูมีมิติ) */}
+          <div className="absolute inset-0 bg-orange-100 rounded-full transform rotate-6 scale-105 -z-10"></div>
+          
+          {/* ตัวรูปจริง */}
+          <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl">
+            <img 
+              src="/images/me.jpg"  // ⚠️ อย่าลืมเอารูปไปวางใน public/images/profile.jpg นะครับ
+              alt="My Profile" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+
         {/* ชื่อลอยขึ้นมา */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
@@ -24,7 +44,7 @@ const Hero = () => {
           Hi, I'm <span className="text-[#FF4500]">Your Name</span>
         </motion.h1>
 
-        {/* คำอธิบาย (แก้ตามที่คุณขอมาล่าสุด) */}
+        {/* คำอธิบาย */}
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,17 +63,17 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          {/* ปุ่มที่ 1: Download Resume (เด่นที่สุด) */}
+          {/* ปุ่มที่ 1: Download Resume */}
           <a 
-            href="/resume.pdf" // ชี้ไปที่ไฟล์ในโฟลเดอร์ public
-            download="Resume_Itthisak.pdf" // ชื่อไฟล์ตอนโหลดลงเครื่องคนอื่น
+            href="/resume.pdf" 
+            download="Resume_Itthisak.pdf"
             className="flex items-center gap-2 px-8 py-3 bg-[#FF4500] text-white rounded-full font-bold hover:bg-orange-700 transition shadow-lg hover:shadow-orange-500/30 transform hover:-translate-y-1"
           >
             <Download size={20} />
             Download Resume
           </a>
 
-          {/* ปุ่มที่ 2: View My Work (ปุ่มรอง) */}
+          {/* ปุ่มที่ 2: View My Work */}
           <a 
             href="#about" 
             className="flex items-center gap-2 px-8 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-full font-bold hover:border-[#FF4500] hover:text-[#FF4500] transition transform hover:-translate-y-1"
@@ -61,16 +81,6 @@ const Hero = () => {
             <FileText size={20} />
             About Me
           </a>
-
-          {/* ปุ่ม Social Icons */}
-          {/* <div className="flex gap-3 mt-4 sm:mt-0 sm:ml-4 border-l pl-0 sm:pl-6 border-gray-200">
-            <a href="https://github.com" target="_blank" className="p-3 bg-gray-50 rounded-full hover:bg-gray-200 transition text-gray-700 hover:text-black">
-              <Github className="w-5 h-5" />
-            </a>
-            <a href="https://linkedin.com" target="_blank" className="p-3 bg-gray-50 rounded-full hover:bg-gray-200 transition text-gray-700 hover:text-blue-600">
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div> */}
         </motion.div>
       </div>
 

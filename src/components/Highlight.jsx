@@ -42,6 +42,17 @@ const Highlight = () => {
       keyHighlightValue: "การออกแบบและต่อวงจร",
       stack: ["Multimeter", "Oscilloscope", "PCB Design"]
     },
+    {
+      id: 4,
+      code: "030523500", // แก้รหัสให้ตรงกับ Transcript (Database)
+      name: "Database & Data Technology",
+      grade: "A",
+      icon: <Database className="text-[#FF4500]" />,
+      description: "เรียนรู้หลักการออกแบบฐานข้อมูล (Database Design), การเขียน ER-Diagram, Normalization และการใช้ SQL Query เพื่อจัดการข้อมูลอย่างมีประสิทธิภาพ",
+      keyHighlightType: "System Design", // <-- เน้นการออกแบบระบบ
+      keyHighlightValue: "ออกแบบโครงสร้างฐานข้อมูลสำหรับระบบจัดการคลังสินค้า (Inventory System)",
+      stack: ["MySQL", "SQL", "Workbench", "ER Diagram"]
+    },
   ];
 
   return (
