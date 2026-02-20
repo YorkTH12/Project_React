@@ -5,7 +5,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Highlight from './components/Highlight';
-import Transcript from './components/Transcript';
+import DocumentHub from './components/DocumentHub';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
       <About />
       <Skills />
       <Highlight />
-      <Transcript />
+      <DocumentHub/>
       <Contact />
       
       
