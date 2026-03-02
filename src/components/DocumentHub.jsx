@@ -68,7 +68,7 @@ const DocumentHub = () => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     <a 
-                      href="/resume.pdf" 
+                      href="./resume.pdf" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition shadow-md"
@@ -76,7 +76,7 @@ const DocumentHub = () => {
                       <ExternalLink size={18} /> Open in New Tab
                     </a>
                     <a 
-                      href="/resume.pdf" 
+                      href="./resume.pdf" 
                       download="Resume_Itthisak.pdf"
                       className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#FF4500] text-[#FF4500] font-bold rounded-lg hover:bg-orange-50 transition"
                     >
@@ -123,7 +123,7 @@ const DocumentHub = () => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     <a 
-                      href="/transcript.pdf" 
+                      href="./transcript.pdf" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition shadow-md"
@@ -131,7 +131,7 @@ const DocumentHub = () => {
                       <ExternalLink size={18} /> Open in New Tab
                     </a>
                     <a 
-                      href="/transcript.pdf" 
+                      href="./transcript.pdf" 
                       download="Transcript_KMUTNB.pdf"
                       className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#FF4500] text-[#FF4500] font-bold rounded-lg hover:bg-orange-50 transition"
                     >
