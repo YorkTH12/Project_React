@@ -27,7 +27,7 @@ const Hero = () => {
           {/* ตัวรูปจริง */}
           <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl">
             <img 
-              src="/images/me.jpg"  // ⚠️ อย่าลืมเอารูปไปวางใน public/images/profile.jpg นะครับ
+              src="./images/me.jpg"  // ⚠️ อย่าลืมเอารูปไปวางใน public/images/profile.jpg นะครับ
               alt="My Profile" 
               className="w-full h-full object-cover"
             />
@@ -65,7 +65,7 @@ const Hero = () => {
         >
           {/* ปุ่มที่ 1: Download Resume */}
           <a 
-            href="/resume.pdf" 
+            href="./resume.pdf" 
             download="Resume_Itthisak.pdf"
             className="flex items-center gap-2 px-8 py-3 bg-[#FF4500] text-white rounded-full font-bold hover:bg-orange-700 transition shadow-lg hover:shadow-orange-500/30 transform hover:-translate-y-1"
           >
