@@ -89,7 +89,7 @@ const DocumentHub = () => {
                 <div className="w-full md:w-2/5 flex justify-center">
                   <div className="relative w-full max-w-sm aspect-[1/1.4] bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group">
                     <iframe 
-                      src="/resume.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                      src="./resume.pdf#toolbar=0&navpanes=0&scrollbar=0" 
                       className="w-full h-full pointer-events-none"
                       title="Resume Preview"
                     ></iframe>
@@ -144,7 +144,7 @@ const DocumentHub = () => {
                 <div className="w-full md:w-2/5 flex justify-center">
                   <div className="relative w-full max-w-sm aspect-[1/1.4] bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden group">
                     <img 
-                      src="/images/transcript_page-0001.jpg" 
+                      src="./images/transcript_page-0001.jpg" 
                       alt="Official Transcript" 
                       className="w-full h-full object-cover object-top"
                     />
